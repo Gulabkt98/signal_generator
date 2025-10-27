@@ -112,14 +112,5 @@ Please open issues for bugs or feature requests. Keep changes small and well-sco
 
 ## License
 
-This project is provided under the MIT License — see `LICENSE` for details. If you want a different license, add a `LICENSE` file at the repository root.
-
-If you want, I can add an MIT `LICENSE` file now.
-
-----
-
-If you'd like, next I can:
-
-- Try compiling this project in your environment and report any errors (I will run the compilation command in PowerShell and share the output).
-- Update `signal_generator.cpp` to replace static buffers with safer dynamic containers and add basic input validation.
+This project is provided under the MIT License — see `LICENSE` 
 
