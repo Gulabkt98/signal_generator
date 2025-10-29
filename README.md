@@ -94,6 +94,7 @@ OpenGL window opened. Close to exit...
 ```
 
 When Manchester is selected the displayed waveform sample length will be double the bit-length (mid-bit transitions are shown). Close the OpenGL window to quit the program.
+![alt text](image.png)
 
 ## Sample: PCM input -> PCM bits
 
