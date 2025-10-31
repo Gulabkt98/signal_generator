@@ -28,26 +28,45 @@ Make sure your environment can find FreeGLUT headers and libraries when compilin
 
 ## Installation (Windows) — FreeGLUT setup
 
-Option A — MSYS2 / pacman (recommended if you use MSYS2):
+Option A — Manual FreeGLUT installation for MinGW (preferred)
 
-1. Install MSYS2: https://www.msys2.org/
-2. Open MSYS2 MinGW64 shell and run:
+If you use a MinGW installation under `C:\MinGW` (or similar), place the FreeGLUT files into MinGW's standard folders. Example layout:
+
+```
+C:\MinGW\
+├── bin\
+│   └── freeglut.dll          ← DLL here (optional, can be copied to exe folder instead)
+├── include\
+│   └── GL\
+│       ├── freeglut.h        ← Headers here
+│       ├── freeglut_ext.h
+│       ├── freeglut_std.h
+│       └── glut.h
+└── lib\
+  └── libfreeglut.a         ← Static/import library here
+```
+
+Steps:
+1. Download FreeGLUT binaries (or build from source) from https://freeglut.sourceforge.net/ or a binary distribution (e.g. FreeGLUT for MinGW).
+2. Copy the header files into `C:\MinGW\include\GL\`.
+3. Copy the library (`libfreeglut.a` or `freeglut.lib`) to `C:\MinGW\lib\`.
+4. Optionally place `freeglut.dll` in `C:\MinGW\bin\` so it is available system-wide, or copy it next to your executable (recommended for portability). You can also add the DLL folder to your PATH.
+
+Verify the setup by compiling and linking (see Compilation section). The include directive in the source uses `#include <GL/glut.h>` so the header location above will satisfy it.
+
+Option B — MSYS2 / pacman (alternate)
+
+If you prefer MSYS2 (recommended for an integrated toolchain), install freeglut from pacman in the MinGW64 environment:
 
 ```powershell
+# In MSYS2 MinGW64 shell
 pacman -Syu
 pacman -S mingw-w64-x86_64-toolchain mingw-w64-x86_64-freeglut
 ```
 
-3. Use the MinGW-w64 `g++` from MSYS2 to compile.
+Then use the MinGW-w64 `g++` from MSYS2 to compile and link.
 
-Option B — Manual FreeGLUT installation:
-
-1. Download FreeGLUT binaries (or build from source): https://freeglut.sourceforge.net/
-2. Copy `freeglut.h` to your compiler includes (e.g. `C:\MinGW\include\GL\`)
-3. Copy `libfreeglut.a` / `freeglut.lib` to your lib folder (e.g. `C:\MinGW\lib\`)
-4. Copy `freeglut.dll` to the same folder as the compiled executable, or to `C:\Windows\System32` (or add its path to PATH).
-
-After installation, verify `#include <GL/glut.h>` resolves and the linker finds `-lfreeglut`.
+After installation (either option), verify `#include <GL/glut.h>` resolves and the linker can find the FreeGLUT import library.
 
 ## Compilation
 
