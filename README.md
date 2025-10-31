@@ -96,9 +96,7 @@ OpenGL window opened. Close to exit...
 When Manchester is selected the displayed waveform sample length will be double the bit-length (mid-bit transitions are shown). Close the OpenGL window to quit the program.
 
 signal:-
-![Signal ](image.png)
-
-## Sample: PCM input -> PCM bits
+![Signal ](image.png) -> PCM bits
 
 If you choose Analog Input (PCM) and supply 4 samples `0.1 0.2 0.4 0.9` with 2 bits/sample the program will quantize into 4 levels and print a resulting bitstring like `00 01 10 11` concatenated as `00011011` (actual output depends on min/max scaling).
 
